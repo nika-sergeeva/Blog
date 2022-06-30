@@ -3,6 +3,7 @@ import React from 'react'
 const styles = {
     display: 'flex',
     justifyContent: 'center',
+    flexDirection: 'column',
     margin: '0 auto',
     width: '81%',
     borderRadius: '10px',

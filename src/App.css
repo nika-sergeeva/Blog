@@ -5,9 +5,9 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Dosis', sans-serif;
-    
 }
 
 body{
     background-color: ghostwhite;
+    font-size: 18px;
 }

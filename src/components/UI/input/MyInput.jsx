@@ -1,8 +1,9 @@
 import React from 'react'
+import classes from "./MyInput.module.css"
 
-const MyInput = () => {
+const MyInput = (props) => {
   return (
-    <input />
+    <input className={classes.MyInput} {...props}/>
   )
 }
 

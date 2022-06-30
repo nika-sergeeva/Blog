@@ -1,0 +1,11 @@
+.MyInput{
+    padding: 8px 12px;
+    width: 100%;
+    margin: 5px 0;
+    border: 1px solid yellowgreen;
+    font-size: 16px;
+}
+.MyInput:focus { 
+    outline: none !important;
+    border: 2px solid cornflowerblue;
+ }

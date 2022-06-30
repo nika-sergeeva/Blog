@@ -7,11 +7,11 @@ const Header = () => {
       <div className={classes.container}>
       <h1>MyBlog</h1>
 
-      <ul>
+      {/* <ul>
         <li>About</li>
         <li>Shop</li>
         <li>Contact</li>
-      </ul>
+      </ul> */}
       
       </div>
     </header>

@@ -1,0 +1,12 @@
+.MySelect{
+    margin: 12px 0;
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid yellowgreen;
+    color: navy;
+    font-size: 16px;
+}
+.MySelect:focus{
+    outline: none !important;
+    border: 2px solid cornflowerblue;
+}
