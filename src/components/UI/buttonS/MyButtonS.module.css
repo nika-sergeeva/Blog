@@ -1,0 +1,20 @@
+.myByttonS{
+    color: navy;
+    cursor: pointer;
+    padding: 6px 11px;
+    font-size: 13px;
+    font-weight: 300;
+    background-color: antiquewhite;
+    border: 0.5px solid transparent;
+    transition: all 0.5s ease;
+    margin: 5px;
+}
+.myByttonS:hover{
+    background-color: yellowgreen;
+    color: white;
+}
+.myButton__current{
+    border: 0.5px solid yellowgreen;
+    font-weight: 700;
+    background-color: transparent;
+}

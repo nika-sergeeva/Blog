@@ -7,7 +7,7 @@ const PostItem = ({order, title, body, post, remove}) => {
   return (
     <div className={classes.post}> 
         <div className="post__content">
-            <b>{order} {title}</b>
+            <b>{order}. {title}</b>
             <p>{body}</p>
         </div>
         <div className="post__btns">

@@ -7,7 +7,7 @@ const styles = {
     margin: '0 auto',
     width: '81%',
     borderRadius: '10px',
-    padding: '50px 10px',
+    padding: '25px 10px 50px 10px',
     backgroundColor: 'white',
     position: 'relative',
     bottom: '73px',

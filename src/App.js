@@ -1,20 +1,41 @@
-import Header from "./components/Header/Header";
-import "./App.css"
-import Main from "./components/Main";
 import { useEffect, useState } from "react";
+import "./App.css"
+
+
+import Header from "./components/Header/Header";
+import Main from "./components/Main";
 import PostForm from "./components/PostForm";
 import PostList from "./components/PostList";
-import PostFilter from "./components/PostFilter";
+import PostFilter from "./components/PostFilter/PostFilter";
 import MyModal from "./components/UI/myModal/MyModal";
-import MyButton from "./components/UI/button/MyButton";
+import Loader from "./components/Loader/MyLoader"
+
 import { usePosts } from "./hooks/usePosts";
-import axios from "axios";
+import BlogServise from "./API/BlogServise";
+import { useFetch } from "./hooks/useFetch";
+import {getPageCount} from "./utils/pages"
+import { usePagination } from "./hooks/usePagination";
+import MyButtonS from "./components/UI/buttonS/MyButtonS";
+
 
 function App() {
 const [post, setPost] = useState([])
 const [filter, setFilter] = useState({sort: '', query: ''})
 const [modal, setModal] = useState(false)
 const sortedAndSearchedPosts = usePosts(post, filter.sort, filter.query)
+const [totalPages, setTotalPages] = useState(0)
+const [limit, setLimit] = useState(10)
+const [page, setPage] = useState(1)
+
+
+const [fetchPost, loader, postError] = useFetch(async() =>{
+  const posts = await BlogServise.fetchAll(limit, page)
+  setPost(posts.data)
+  const totalCount = posts.headers['x-total-count']
+  setTotalPages(getPageCount(totalCount, limit))
+})
+const pagesArray = usePagination(totalPages)
+
 
 const getPost = (newPost) =>{
 setPost([...post, newPost])
@@ -24,30 +45,35 @@ const deletePost = (item) =>{
   setPost(post.filter(i => i.id !== item.id))
 }
 
-
 useEffect(()=> {
-  async function fetchPost(){
-    const res = await axios.get('https://jsonplaceholder.typicode.com/posts')
-    setPost(res.data)
-  }
-
   fetchPost()
 }, [])
 
+function changePage(page){
+setPage(page)
+fetchPost()
+console.log(page)
+}
 
   return (
     <div className="App">
-      <Header />
+      <Header setModal={setModal}/>
       <Main>
         
-        <MyButton style={{width: '18%'}} onClick={() => setModal(true)}>Create new post</MyButton>
-
         <MyModal visible={modal} setVisible={setModal}>
           <PostForm getPost={getPost}/>
         </MyModal>
 
         <PostFilter filter={filter} setFilter={setFilter}/>
-        <PostList post={sortedAndSearchedPosts} remove={deletePost} />
+        {postError && <h2>Error occured: {postError}</h2>}
+        { loader? <Loader /> : <PostList post={sortedAndSearchedPosts} remove={deletePost} /> }
+        <div className="page" >
+          {pagesArray.map(i => 
+                  <MyButtonS 
+                    onClick={() => changePage(i)}
+                    key={i} 
+                    current={page === i? true : false}> {i} </MyButtonS>)}
+          </div> 
       </Main>
     </div>
   );

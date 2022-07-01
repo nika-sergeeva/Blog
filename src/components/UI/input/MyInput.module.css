@@ -1,11 +1,14 @@
 .MyInput{
     padding: 8px 12px;
     width: 100%;
+    max-width: 440px;
     margin: 5px 0;
-    border: 1px solid yellowgreen;
+    border: 1px solid transparent;
     font-size: 16px;
+    border-radius: 10px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 .MyInput:focus { 
     outline: none !important;
-    border: 2px solid cornflowerblue;
+    border: 1px solid cornflowerblue;
  }
