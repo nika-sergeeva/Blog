@@ -12,7 +12,7 @@ const PostList = ({post, remove}) => {
   return (
     <div>
         {post.map((item, index) => {
-       return  <PostItem key={item.id} remove={remove} order={index + 1} post={item} title={item.title} body={item.body}/> 
+       return  <PostItem key={item.id} remove={remove} id={item.id} post={item} title={item.title} body={item.body}/> 
         })}
     </div>
   )

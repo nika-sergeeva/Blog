@@ -8,14 +8,13 @@ import PostForm from "./components/PostForm";
 import PostList from "./components/PostList";
 import PostFilter from "./components/PostFilter/PostFilter";
 import MyModal from "./components/UI/myModal/MyModal";
-import Loader from "./components/Loader/MyLoader"
+import Loader from "./components/UI/Loader/MyLoader"
 
 import { usePosts } from "./hooks/usePosts";
 import BlogServise from "./API/BlogServise";
 import { useFetch } from "./hooks/useFetch";
 import {getPageCount} from "./utils/pages"
-import { usePagination } from "./hooks/usePagination";
-import MyButtonS from "./components/UI/buttonS/MyButtonS";
+import Pagination from "./components/UI/pagination/Pagination";
 
 
 function App() {
@@ -34,7 +33,7 @@ const [fetchPost, loader, postError] = useFetch(async() =>{
   const totalCount = posts.headers['x-total-count']
   setTotalPages(getPageCount(totalCount, limit))
 })
-const pagesArray = usePagination(totalPages)
+
 
 
 const getPost = (newPost) =>{
@@ -47,12 +46,10 @@ const deletePost = (item) =>{
 
 useEffect(()=> {
   fetchPost()
-}, [])
+}, [page])
 
 function changePage(page){
 setPage(page)
-fetchPost()
-console.log(page)
 }
 
   return (
@@ -67,13 +64,7 @@ console.log(page)
         <PostFilter filter={filter} setFilter={setFilter}/>
         {postError && <h2>Error occured: {postError}</h2>}
         { loader? <Loader /> : <PostList post={sortedAndSearchedPosts} remove={deletePost} /> }
-        <div className="page" >
-          {pagesArray.map(i => 
-                  <MyButtonS 
-                    onClick={() => changePage(i)}
-                    key={i} 
-                    current={page === i? true : false}> {i} </MyButtonS>)}
-          </div> 
+        <Pagination totalPages={totalPages} page={page} changePage={changePage}/>
       </Main>
     </div>
   );
