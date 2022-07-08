@@ -5,6 +5,7 @@ const styles = {
     justifyContent: 'center',
     flexDirection: 'column',
     margin: '0 auto',
+    minHeight: '405px',
     width: '81%',
     borderRadius: '10px',
     padding: '25px 10px 50px 10px',

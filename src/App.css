@@ -18,3 +18,51 @@ body{
     align-items: center;
     margin-top: 20px;
 }
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h2{
+    color: hsl(212, 24%, 26%);
+}
+p{
+    color: hsl(211, 10%, 45%);
+
+}
+hr{
+    height: 2px;
+    width: 100%;
+    background-color: hsl(228, 33%, 97%);
+    border-style: none;
+    margin: 1rem 0px;
+}
+
+.center-block{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-text{
+    font-size: 18px;
+    max-width: 63%;
+    text-align: center;
+}
+
+.postBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media(max-width: 570px){
+    .about-text{
+        max-width: 95%;
+    }
+}

@@ -1,0 +1,42 @@
+.comment{
+    padding: 1rem 2rem;
+    background-color: ghostwhite;
+    margin: 1rem 0 1rem 1rem;
+    border-radius: 6px;
+    width: fit-content;
+}
+
+.body{
+    max-width: 500px;
+    color: hsl(211, 10%, 45%);
+}
+.headingBox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 1rem;
+}
+.avatar{
+    width: 30px;
+    height: 30px;
+    margin-right: 1rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    color: hsl(212, 24%, 26%);
+    align-items: center;
+    font-weight: 700;
+}
+.heading{
+    color: hsl(212, 24%, 26%);
+}
+
+@media(max-width: 334px){
+    .comment{
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+    .heading{
+        font-size: 19px;
+    }
+}

@@ -1,15 +1,21 @@
 import React from 'react'
 import MyButton from '../UI/button/MyButton'
 import classes from './PostItem.module.css'
+import {Link} from 'react-router-dom'
+import { textTransformation } from '../../utils/spelling'
 
 const PostItem = ({id, title, body, post, remove}) => {
 
+
   return (
+    
     <div className={classes.post}> 
-        <div className="post__content">
-            <b>{id}. {title}</b>
-            <p>{body}</p>
-        </div>
+       <Link to={`posts/${id}`}> 
+            <div className="post__content">
+                  <h2>{id}. {textTransformation(title)}.</h2>
+                  <p>{textTransformation(body)}.</p>
+              </div>
+        </Link>
         <div className="post__btns">
             <MyButton onClick={()=> remove(post)}>Delete</MyButton>
         </div>
