@@ -8,7 +8,7 @@ header{
     background-blend-mode: overlay;
     background-color: rgba(255, 255, 255, 0.1);
 }
-/* background-color: rgba(0, 0, 0, 0.1); black*/
+
 .container{
     max-width: 1440px;
     margin: 0 auto;
