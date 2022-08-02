@@ -6,7 +6,7 @@ const styles = {
     flexDirection: 'column',
     margin: '0 auto',
     minHeight: '405px',
-    maxWidth: '802px'
+    maxWidth: '802px',
     width: '81%',
     borderRadius: '10px',
     padding: '25px 10px 50px 10px',
