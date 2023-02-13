@@ -15,7 +15,7 @@ import Pagination from '../components/UI/pagination/Pagination'
 
 const Blog = () => {
 
-    const [modal, setModal] = useState(false)
+    // const [modal, setModal] = useState(false)
 
     const [post, setPost] = useState([])
     const [filter, setFilter] = useState({sort: '', query: ''})
@@ -33,10 +33,10 @@ const Blog = () => {
       setTotalPages(getPageCount(totalCount, limit))
     })
     
-    const getPost = (newPost) =>{
-    setPost([...post, newPost])
-    setModal(false)
-    }
+    // const getPost = (newPost) =>{
+    // setPost([...post, newPost])
+    // setModal(false)
+    // }
     const deletePost = (item) =>{
       setPost(post.filter(i => i.id !== item.id))
     }
@@ -51,13 +51,13 @@ const Blog = () => {
     
   return (
     <>
-        <MyModal visible={modal} setVisible={setModal}>
+        {/* <MyModal visible={modal} setVisible={setModal}>
           <PostForm getPost={getPost}/>
-        </MyModal>
+        </MyModal> */}
         
         <PostFilter filter={filter} setFilter={setFilter}/>
 
-        <MyButton onClick={() => setModal(true)}>Add New Post</MyButton>
+        {/* <MyButton onClick={() => setModal(true)}>Add New Post</MyButton> */}
 
         {postError && <h2>Error occured: {postError}</h2>}
         { loader? <MyLoader /> : <PostList post={sortedAndSearchedPosts} remove={deletePost} /> }
